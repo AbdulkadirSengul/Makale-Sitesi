@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MakaleModelStoreContainer" CdmEntityContainer="MakaleEntities">
+    <EntitySetMapping Name="Bolum">
+      <EntityTypeMapping TypeName="MakaleModel.Bolum">
+        <MappingFragment StoreEntitySet="Bolum">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dergi">
+      <EntityTypeMapping TypeName="MakaleModel.Dergi">
+        <MappingFragment StoreEntitySet="Dergi">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="BaslamaYili" ColumnName="BaslamaYili" />
+          <ScalarProperty Name="Endex" ColumnName="Endex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endeks">
+      <EntityTypeMapping TypeName="MakaleModel.Endeks">
+        <MappingFragment StoreEntitySet="Endeks">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="MakaleModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="MakaleModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="TcKimlikNo" ColumnName="TcKimlikNo" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="UnvanNo" ColumnName="UnvanNo" />
+          <ScalarProperty Name="BolumNo" ColumnName="BolumNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Makale">
+      <EntityTypeMapping TypeName="MakaleModel.Makale">
+        <MappingFragment StoreEntitySet="Makale">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="YayinTarihi" ColumnName="YayinTarihi" />
+          <ScalarProperty Name="DergiNo" ColumnName="DergiNo" />
+          <ScalarProperty Name="MakaleTuruNo" ColumnName="MakaleTuruNo" />
+          <ScalarProperty Name="EndeksNo" ColumnName="EndeksNo" />
+          <ScalarProperty Name="Özet" ColumnName="Özet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MakaleKategori">
+      <EntityTypeMapping TypeName="MakaleModel.MakaleKategori">
+        <MappingFragment StoreEntitySet="MakaleKategori">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="MakaleNo" ColumnName="MakaleNo" />
+          <ScalarProperty Name="KategoriNo" ColumnName="KategoriNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MakaleTur">
+      <EntityTypeMapping TypeName="MakaleModel.MakaleTur">
+        <MappingFragment StoreEntitySet="MakaleTur">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MakaleYazar">
+      <EntityTypeMapping TypeName="MakaleModel.MakaleYazar">
+        <MappingFragment StoreEntitySet="MakaleYazar">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+          <ScalarProperty Name="MakaleNo" ColumnName="MakaleNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MakaleModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unvan">
+      <EntityTypeMapping TypeName="MakaleModel.Unvan">
+        <MappingFragment StoreEntitySet="Unvan">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="KisaAd" ColumnName="KisaAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="MakaleModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="KullaniciNumara" ColumnName="KullaniciNumara" />
+          <ScalarProperty Name="Parametre" ColumnName="Parametre" />
+          <ScalarProperty Name="Metot" ColumnName="Metot" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Tarayici" ColumnName="Tarayici" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="No" ColumnName="No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

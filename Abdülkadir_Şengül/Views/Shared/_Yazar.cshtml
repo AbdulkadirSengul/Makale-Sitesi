@@ -1,0 +1,15 @@
+﻿@model List<Abdülkadir_Şengül.Models.MakaleYazar>
+
+@{
+    ViewBag.Title = "_Yazar";
+}
+
+@foreach (var yazar in Model)
+{
+
+    <ul class="list-unstyled">
+        <li>
+            <a href="">@yazar.Kullanici.KullaniciAdi</a>
+        </li>
+    </ul>
+}

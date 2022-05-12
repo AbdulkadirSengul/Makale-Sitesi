@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Abdülkadir_Şengül.Models.Makale>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_kullaniciLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Makale", "MakaleEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YayinTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Özet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dergi.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endeks.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleTur.Ad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YayinTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Özet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dergi.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endeks.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleTur.Ad)
+            </td>
+        </tr>
+    }
+
+</table>

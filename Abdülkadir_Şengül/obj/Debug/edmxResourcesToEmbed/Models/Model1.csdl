@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MakaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Bolum" FromRole="Bolum" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="Dergi">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BaslamaYili" Type="Int32" />
+    <Property Name="Endex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Makale" Relationship="Self.FK_Makale_Dergi" FromRole="Dergi" ToRole="Makale" />
+  </EntityType>
+  <EntityType Name="Endeks">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Makale" Relationship="Self.FK_Makale_Endeks" FromRole="Endeks" ToRole="Makale" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MakaleKategori" Relationship="Self.FK_MakaleKategori_Kategori" FromRole="Kategori" ToRole="MakaleKategori" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DogumTarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cinsiyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnvanNo" Type="Int32" />
+    <Property Name="BolumNo" Type="Int32" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Kullanici_Bolum" FromRole="Kullanici" ToRole="Bolum" />
+    <NavigationProperty Name="Unvan" Relationship="Self.FK_Kullanici_Unvan" FromRole="Kullanici" ToRole="Unvan" />
+    <NavigationProperty Name="MakaleYazar" Relationship="Self.FK_MakaleYazar_Kullanici" FromRole="Kullanici" ToRole="MakaleYazar" />
+  </EntityType>
+  <EntityType Name="Makale">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YayinTarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DergiNo" Type="Int32" />
+    <Property Name="MakaleTuruNo" Type="Int32" />
+    <Property Name="EndeksNo" Type="Int32" />
+    <Property Name="Özet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dergi" Relationship="Self.FK_Makale_Dergi" FromRole="Makale" ToRole="Dergi" />
+    <NavigationProperty Name="Endeks" Relationship="Self.FK_Makale_Endeks" FromRole="Makale" ToRole="Endeks" />
+    <NavigationProperty Name="MakaleTur" Relationship="Self.FK_Makale_MakaleTur" FromRole="Makale" ToRole="MakaleTur" />
+    <NavigationProperty Name="MakaleKategori" Relationship="Self.FK_MakaleKategori_Makale" FromRole="Makale" ToRole="MakaleKategori" />
+    <NavigationProperty Name="MakaleYazar" Relationship="Self.FK_MakaleYazar_Makale" FromRole="Makale" ToRole="MakaleYazar" />
+  </EntityType>
+  <EntityType Name="MakaleKategori">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="MakaleNo" Type="Int32" />
+    <Property Name="KategoriNo" Type="Int32" />
+    <NavigationProperty Name="Kategori" Relationship="Self.FK_MakaleKategori_Kategori" FromRole="MakaleKategori" ToRole="Kategori" />
+    <NavigationProperty Name="Makale" Relationship="Self.FK_MakaleKategori_Makale" FromRole="MakaleKategori" ToRole="Makale" />
+  </EntityType>
+  <EntityType Name="MakaleTur">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Makale" Relationship="Self.FK_Makale_MakaleTur" FromRole="MakaleTur" ToRole="Makale" />
+  </EntityType>
+  <EntityType Name="MakaleYazar">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="KullaniciNo" Type="Int32" />
+    <Property Name="MakaleNo" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_MakaleYazar_Kullanici" FromRole="MakaleYazar" ToRole="Kullanici" />
+    <NavigationProperty Name="Makale" Relationship="Self.FK_MakaleYazar_Makale" FromRole="MakaleYazar" ToRole="Makale" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unvan">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KisaAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Unvan" FromRole="Unvan" ToRole="Kullanici" />
+  </EntityType>
+  <Association Name="FK_Kullanici_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="BolumNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Makale_Dergi">
+    <End Role="Dergi" Type="Self.Dergi" Multiplicity="0..1" />
+    <End Role="Makale" Type="Self.Makale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dergi">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="Makale">
+        <PropertyRef Name="DergiNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Makale_Endeks">
+    <End Role="Endeks" Type="Self.Endeks" Multiplicity="0..1" />
+    <End Role="Makale" Type="Self.Makale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endeks">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="Makale">
+        <PropertyRef Name="EndeksNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MakaleKategori_Kategori">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="0..1" />
+    <End Role="MakaleKategori" Type="Self.MakaleKategori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="MakaleKategori">
+        <PropertyRef Name="KategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_Unvan">
+    <End Role="Unvan" Type="Self.Unvan" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unvan">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="UnvanNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MakaleYazar_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="MakaleYazar" Type="Self.MakaleYazar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="MakaleYazar">
+        <PropertyRef Name="KullaniciNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Makale_MakaleTur">
+    <End Role="MakaleTur" Type="Self.MakaleTur" Multiplicity="0..1" />
+    <End Role="Makale" Type="Self.Makale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MakaleTur">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="Makale">
+        <PropertyRef Name="MakaleTuruNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MakaleKategori_Makale">
+    <End Role="Makale" Type="Self.Makale" Multiplicity="0..1" />
+    <End Role="MakaleKategori" Type="Self.MakaleKategori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Makale">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="MakaleKategori">
+        <PropertyRef Name="MakaleNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MakaleYazar_Makale">
+    <End Role="Makale" Type="Self.Makale" Multiplicity="0..1" />
+    <End Role="MakaleYazar" Type="Self.MakaleYazar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Makale">
+        <PropertyRef Name="No" />
+      </Principal>
+      <Dependent Role="MakaleYazar">
+        <PropertyRef Name="MakaleNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MakaleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+    <EntitySet Name="Dergi" EntityType="Self.Dergi" />
+    <EntitySet Name="Endeks" EntityType="Self.Endeks" />
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="Makale" EntityType="Self.Makale" />
+    <EntitySet Name="MakaleKategori" EntityType="Self.MakaleKategori" />
+    <EntitySet Name="MakaleTur" EntityType="Self.MakaleTur" />
+    <EntitySet Name="MakaleYazar" EntityType="Self.MakaleYazar" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Unvan" EntityType="Self.Unvan" />
+    <AssociationSet Name="FK_Kullanici_Bolum" Association="Self.FK_Kullanici_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Makale_Dergi" Association="Self.FK_Makale_Dergi">
+      <End Role="Dergi" EntitySet="Dergi" />
+      <End Role="Makale" EntitySet="Makale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Makale_Endeks" Association="Self.FK_Makale_Endeks">
+      <End Role="Endeks" EntitySet="Endeks" />
+      <End Role="Makale" EntitySet="Makale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MakaleKategori_Kategori" Association="Self.FK_MakaleKategori_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="MakaleKategori" EntitySet="MakaleKategori" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_Unvan" Association="Self.FK_Kullanici_Unvan">
+      <End Role="Unvan" EntitySet="Unvan" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MakaleYazar_Kullanici" Association="Self.FK_MakaleYazar_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="MakaleYazar" EntitySet="MakaleYazar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Makale_MakaleTur" Association="Self.FK_Makale_MakaleTur">
+      <End Role="MakaleTur" EntitySet="MakaleTur" />
+      <End Role="Makale" EntitySet="Makale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MakaleKategori_Makale" Association="Self.FK_MakaleKategori_Makale">
+      <End Role="Makale" EntitySet="Makale" />
+      <End Role="MakaleKategori" EntitySet="MakaleKategori" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MakaleYazar_Makale" Association="Self.FK_MakaleYazar_Makale">
+      <End Role="Makale" EntitySet="Makale" />
+      <End Role="MakaleYazar" EntitySet="MakaleYazar" />
+    </AssociationSet>
+    <EntitySet Name="Log" EntityType="MakaleModel.Log" />
+  </EntityContainer>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="No" />
+    </Key>
+    <Property Name="No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tarayici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Metot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Parametre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciNumara" Type="Int32" />
+  </EntityType>
+</Schema>

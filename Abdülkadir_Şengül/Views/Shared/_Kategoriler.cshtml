@@ -1,0 +1,15 @@
+﻿@model List<Abdülkadir_Şengül.Models.Kategori>
+@{
+    ViewBag.Title = "_Kategoriler";
+}
+
+@foreach (var ktgr in Model)
+{
+<div style="background-color:darkgray;">
+    <ul class="list-unstyled">
+        <li>
+            <a href="">@ktgr.Ad</a>
+        </li>
+    </ul>
+</div>
+}

@@ -1,0 +1,31 @@
+﻿@model Abdülkadir_Şengül.Models.Kullanici
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_oturumLayout.cshtml";
+}
+
+<div id="formWrapper">
+
+    <div id="form">
+        <div class="logo">
+            <h1 class="text-center head">Kullanıcı Giriş</h1>
+        </div>
+        @using (Html.BeginForm("Giris", "Oturum", FormMethod.Post))
+        {
+            <div class="form-item">
+                @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+            </div>
+            <div class="form-item">
+                @Html.TextBoxFor(m => m.Parola, new { @class = "form-control", @placeholder = "Parola", @type = "password" })
+            </div>
+            <div class="form-item text-center">
+                <input type="submit" style="color:white" class="btn bg-info" vertical-center" value="Giriş Yap">
+                <div class="clear-fix">
+                    <br />
+                    <p class="text-center" style="color:red">@ViewBag.uyari</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

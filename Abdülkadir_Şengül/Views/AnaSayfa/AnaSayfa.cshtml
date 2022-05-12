@@ -1,0 +1,29 @@
+﻿@model List<Abdülkadir_Şengül.Models.Makale>
+@{ 
+    ViewBag.Title = "AnaSayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+
+<div class="container ">
+    <div class="row">
+         <div class="col-md-3">
+                @Html.Action("_Kategoriler", "AnaSayfa")
+         </div>
+        <div class="col-md-6" style="background-color:aliceblue; margin-top:20px;">
+            <h3><u>Son Makaleler</u></h3>
+
+            @foreach (var makale in Model)
+            {
+                <div>
+                    <h4>@makale.Özet</h4>
+                    <p>@makale.YayinTarihi</p>
+                </div>      
+             }
+
+        </div>
+        <div class="col-md-3">
+            @Html.Action("_Yazar", "AnaSayfa")
+        </div>
+    </div>
+</div>

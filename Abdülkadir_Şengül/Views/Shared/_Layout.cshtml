@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kemco Makale</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/mystyle.css" rel="stylesheet" />
+
+    @Html.Partial("_header")
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+        <br />
+    </div>
+
+    @Html.Partial("_footer")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
